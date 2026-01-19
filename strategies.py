@@ -67,3 +67,35 @@ class WindowedMovingAverageStrategy(Strategy):
             return ["BUY"]
         else:
             return ["SELL"]
+
+class OptimizedNaiveMovingAverageStrategy(Strategy):
+    """
+    Refactored Naive moving average strategy using running sum 
+        - attempting to pass 1 sec time test while keeping full price history
+
+    Time Complexity:
+        - Per tick: O(1)
+
+    Space Complexity:
+        - O(n) (stores full price history)
+    """
+
+    def __init__(self):
+        self.prices = []
+        self.running_sum = 0.0
+
+    def generate_signals(self, tick: MarketDataPoint) -> List[str]:
+        # O(1): append price
+        self.prices.append(tick.price)
+        self.running_sum += tick.price
+
+        # O(1): recompute average with the running sum, avoid repeating operations
+        #avg_price = sum(self.running_sum / len(self.prices))
+
+        avg_price = self.running_sum / len(self.prices)
+        
+        if tick.price > avg_price:
+            return ["BUY"]
+        else:
+            return ["SELL"]
+        
