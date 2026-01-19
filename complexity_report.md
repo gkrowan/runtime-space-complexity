@@ -41,9 +41,9 @@ The windowed moving average strategy uses a fixed window size to maintain a runn
 
 ### Scaling Behavior Plots
 
-![Runtime Scaling](runtime_scaling.png)
+![Runtime Scaling](output/runtime_scaling.png)
 
-![Memory Scaling](memory_scaling.png)
+![Memory Scaling](output/memory_scaling.png)
 
 
 ### Narrative Comparison
@@ -57,10 +57,11 @@ As the number of ticks approaches 100,000, the two strategies exhibit some unexp
 Test 1: Performance
 - PASSED: memory usage is  <100MB memory for 100k ticks
 - FAILED: Naive strategy does not run under 1 s
-    - After refactoring Naive: 
+    - After refactoring Naive: PASSED
 
 Test 2: Profiling 
-- PASSED: Expected hotspots and memory peaks
+- PASSED: Expected hotspots and memory peaks in Naive strategy
 
 Test 3: Strategies
 - PASSED: Naive and Windowed strategies compute the same trading recommendation.
+- PASSED: Naive and Refactored Naive strategies computer the same trading recommendation

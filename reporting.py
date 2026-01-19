@@ -16,7 +16,7 @@ def plot_runtime(results):
     plt.xlabel("Number of Ticks")
     plt.ylabel("Runtime (seconds)")
     plt.legend()
-    plt.savefig("runtime_scaling.png")
+    plt.savefig("output/runtime_scaling.png")
     plt.clf()
 
 
@@ -31,10 +31,10 @@ def plot_memory(results):
     plt.xlabel("Number of Ticks")
     plt.ylabel("Peak Memory (MB)")
     plt.legend()
-    plt.savefig("memory_scaling.png")
+    plt.savefig("output/memory_scaling.png")
     plt.clf()
 
-def results_table(results, output_path="results_table.md"):
+def results_table(results, output_path="output/results_table.md"):
     """
     Generate markdown table of results, save to file.
     """

@@ -9,6 +9,7 @@ from models import MarketDataPoint
 from strategies import (
     NaiveMovingAverageStrategy,
     WindowedMovingAverageStrategy,
+    OptimizedNaiveMovingAverageStrategy
 )
 
 
@@ -30,12 +31,16 @@ def test_strategies_produce_same_signals():
 
     naive = NaiveMovingAverageStrategy()
     windowed = WindowedMovingAverageStrategy(window_size=len(prices))
+    optimized_naive = OptimizedNaiveMovingAverageStrategy()
 
     naive_signals = []
     windowed_signals = []
+    optimized_naive_signals = []
 
     for tick in ticks:
         naive_signals.append(naive.generate_signals(tick))
         windowed_signals.append(windowed.generate_signals(tick))
+        optimized_naive_signals.append(optimized_naive.generate_signals(tick))
 
     assert naive_signals == windowed_signals
+    assert naive_signals == optimized_naive_signals

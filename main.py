@@ -13,18 +13,20 @@ from data_loader import load_market_data
 from strategies import (
     NaiveMovingAverageStrategy,
     WindowedMovingAverageStrategy,
+    OptimizedNaiveMovingAverageStrategy
 )
 from profiler import profile_runtime, profile_memory
 from reporting import plot_runtime, plot_memory, results_table 
 
 
 def main():
-    data = load_market_data("market_data.csv")
+    data = load_market_data("data/market_data.csv")
     #print(data[:5])  # Print first 5 data points as a sample
 
     strategies = {
         "Naive": NaiveMovingAverageStrategy(),
         "Windowed": WindowedMovingAverageStrategy(window_size=10),
+        "RefactoredNaive" : OptimizedNaiveMovingAverageStrategy()
     }
 
     input_sizes = [1000, 10_000, 100_000]
@@ -46,7 +48,6 @@ def main():
             results[name]["memory"].append(
                 profile_memory(strategy, subset)
             )
-    #print(results["Naive"])
 
     plot_runtime(results)
     plot_memory(results)
