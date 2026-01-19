@@ -7,7 +7,7 @@ MS-ADS Realtime Intelligent Systems Assignment 2
 
 ## Environment Set Up 
 - Create and activate a virtual environment in the project root
-- Run the following command to install required pachages: 
+- Run the following command to install required packages: 
     pip install -r requirements.txt
 
 ## Data Generation
@@ -15,13 +15,13 @@ MS-ADS Realtime Intelligent Systems Assignment 2
 - Alternatively, use data/market_data.csv, which has already been generated using this process 
 
 ## How to Run the Process
-- to execute the entire process, run: python main.py 
+- To execute the entire process, run: python main.py 
 - This will execute: 
     - Loading the market data
     - Running the strategies on different subsets of the data
     - Recording and visualising the results 
 
 ## How to Run tests
-- run: pytest
+- in tests folder, run: pytest
 - pytest will automatically detect the unit test files in the test/ folder
 - PASS/FAIL results will display in terminal
