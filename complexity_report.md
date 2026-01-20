@@ -50,7 +50,10 @@ The windowed moving average strategy uses a fixed window size to maintain a runn
 
 The Naive Moving Average strategy exhibits quadratic time complexity due to the need to sum all prices for each tick, leading to significant slowdowns as data size increases. In contrast, the Windowed Moving Average strategy maintains constant time complexity per tick by only updating the sum with the new price and removing the oldest price, resulting in much better performance for large datasets.
 
+The Refactored Naive Moving Average Strategy implements a running sum, rather than recomputing the sum each time. This decreases the time complexity while still achieving the same results and saving the full price history.
+
 As the number of ticks approaches 100,000, the two strategies exhibit some unexpected memory behavior: the naive strategy actually has a lower peak memory usage than the windowed method. This was confusing to me at first, but I attribute it to the non-deterministic way that python's memory allocater works and the sampling-based method used by the memory profiler. Also, I found that run-to-run differences stabilize when I force garbage collection before calling main.py and running the entire process again. 
+
 
 ### Test Results: 
 
