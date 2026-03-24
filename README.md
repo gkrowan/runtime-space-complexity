@@ -1,5 +1,5 @@
 # runtime-space-complexity
-MS-ADS Realtime Intelligent Systems Assignment 2
+
 
 - Design and implement a Python module that ingests market data from a CSV file and applies multiple trading strategies with varying runtime and space complexities. You will analyze, compare, and optimize the performance of these strategies using profiling tools and theoretical Big-O analysis. The goal is to understand how algorithmic design choices affect both execution time and memory usage in financial systems.
 
